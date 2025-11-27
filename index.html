@@ -4,10 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vil Andrew Calim • Web Designer</title>
-   <link rel="icon" type="image/png" href="villogo.jpg">
+  <link rel="icon" type="image/png" href="villogo.jpg">
+
   <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
@@ -25,24 +27,49 @@
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO SECTION WITH 3D + HOLOGRAM -->
   <section class="hero fade-up">
     <canvas id="stars"></canvas>
 
-    <div class="hero-content">
+    <!-- 3D floating neon shapes -->
+    <div class="hero-orbits" data-depth="0.08">
+      <div class="orbit-ring orbit-1"></div>
+      <div class="orbit-ring orbit-2"></div>
+      <div class="orbit-sphere sphere-1"></div>
+      <div class="orbit-sphere sphere-2"></div>
+
+      <div class="cube-3d">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <!-- Hologram floating Vil -->
+    <div class="floating-holo vil-holo" data-depth="0.4">
+      <div class="holo-frame holo-small">
+        <img src="drew.jpg" alt="Vil Andrew Hologram">
+        <span class="holo-tag">VIL</span>
+      </div>
+    </div>
+
+    <!-- Hero text -->
+    <div class="hero-content" data-depth="0.2">
       <h1>WEB DESIGNS THAT WORK<br>FOR YOUR BUSINESS</h1>
+
       <p class="tagline">
         ELEGANT DESIGNS · CLEAR STRATEGY · REAL RESULTS<br>
         Turning your ideas into engaging, responsive websites.
       </p>
 
-      
-
       <a href="#contact" class="btn-primary">Let’s Talk</a>
     </div>
 
-    <div class="hero-image slide-in">
-      <img src="designer.png" alt="Futuristic Web Design">
+    <!-- Main hologram image -->
+    <div class="hero-image slide-in" data-depth="0.32">
+      <div class="holo-frame hero-holo">
+        <span class="holo-tag">WEB DESIGNER</span>
+        <img src="designer.png" alt="Futuristic Web Design">
+        <div class="holo-scan"></div>
+      </div>
     </div>
   </section>
 
@@ -55,11 +82,13 @@
           This portfolio website was designed and built by <strong>Vil Andrew Calim</strong> to showcase
           his creativity, development skills, and passion for building clean and effective web experiences.
         </p>
+
         <p>
           Inspired by modern agency designs, this site combines <strong>UI/UX design</strong>,
           <strong>front-end coding</strong>, and <strong>digital marketing strategy</strong> to create a
           smooth, professional experience that reflects the work I deliver to clients.
         </p>
+
         <p>
           Every section — from the <em>starry animated background</em> to the <em>scroll-triggered animations</em> —
           represents attention to detail, responsiveness, and storytelling through design.
@@ -71,11 +100,13 @@
             <h3>Creative Coding</h3>
             <p>Hand-coded using HTML, CSS, and JavaScript for smooth performance and responsive design.</p>
           </div>
+
           <div class="highlight">
             <i class="fa-solid fa-bullhorn"></i>
             <h3>Digital Presence</h3>
             <p>Showcases real projects like <strong>Get & Buy Marketplace</strong> and <strong>Prairies Hills Real Estate</strong>.</p>
           </div>
+
           <div class="highlight">
             <i class="fa-solid fa-user-astronaut"></i>
             <h3>Modern Design</h3>
@@ -92,51 +123,47 @@
     </div>
   </section>
 
-<!-- ABOUT ME SECTION -->
-<section id="aboutme" class="fade-up">
-  <div class="container aboutme-container">
-    <div class="aboutme-image slide-in">
-      <img src="Vil.png" alt="Vil Andrew Calim">
-    </div>
-
-    <div class="aboutme-text">
-      <h2>About Me</h2>
-      <p>
-        Hello! I'm <strong>Vil Andrew Calim</strong>, an <strong>IT student </strong> passionate about
-        combining creativity, design, and technology to craft clean and engaging web experiences.
-      </p>
-      <p>
-        I focus on building responsive websites that reflect both functionality and aesthetic value.
-        I also enjoy exploring <strong>digital marketing</strong> and <strong>UI/UX design</strong>,
-        blending creativity and business strategy in every project I create.
-      </p>
-
-      <div class="aboutme-highlights">
-        <div class="aboutme-card">
-          <i class="fa-solid fa-code"></i>
-          <h3>Web Development</h3>
-          <p>Front-end development using HTML, CSS, and JavaScript with responsive, mobile-first layouts.</p>
-        </div>
-        <div class="aboutme-card">
-  <i class="fa-solid fa-bullhorn"></i>
-  <h3>Digital Marketing</h3>
-  <p>Experience in social media content, online ads, and product promotion campaigns.</p>
-
-  <a href="#ads-gallery" class="btn-view-ads">
-    <i class="fa-solid fa-play"></i> View My Ads
-  </a>
-</div>
-
-        
-          
+  <!-- ABOUT ME SECTION -->
+  <section id="aboutme" class="fade-up">
+    <div class="container aboutme-container">
+      <div class="aboutme-image slide-in" data-depth="0.25">
+        <img src="Vil.png" alt="Vil Andrew Calim">
       </div>
 
-      <a href="#projects" class="btn-primary">View My Projects</a>
+      <div class="aboutme-text">
+        <h2>About Me</h2>
+        <p>Hello! I'm <strong>Vil Andrew Calim</strong>, an <strong>IT student </strong> passionate about
+          combining creativity, design, and technology to craft clean and engaging web experiences.</p>
+
+        <p>
+          I focus on building responsive websites that reflect both functionality and aesthetic value.
+          I also enjoy exploring <strong>digital marketing</strong> and <strong>UI/UX design</strong>,
+          blending creativity and business strategy in every project I create.
+        </p>
+
+        <div class="aboutme-highlights">
+          <div class="aboutme-card">
+            <i class="fa-solid fa-code"></i>
+            <h3>Web Development</h3>
+            <p>Front-end development using HTML, CSS, and JavaScript with responsive, mobile-first layouts.</p>
+          </div>
+
+          <div class="aboutme-card">
+            <i class="fa-solid fa-bullhorn"></i>
+            <h3>Digital Marketing</h3>
+            <p>Experience in social media content, online ads, and product promotion campaigns.</p>
+
+            <a href="#ads-gallery" class="btn-neon btn-view-ads">
+  <i class="fa-solid fa-play"></i> View My Ads
+</a>
+
+          </div>
+        </div>
+
+        <a href="#projects" class="btn-primary">View My Projects</a>
+      </div>
     </div>
-  </div>
-</section>
-
-
+  </section>
 
   <!-- PROJECTS -->
   <section id="projects" class="fade-up">
@@ -151,13 +178,15 @@
           <div class="project-info">
             <h3>Prairies Hills Real Estate</h3>
             <p>
-              A luxury real estate website designed with property listings, video backgrounds,
-              and WhatsApp inquiry system for direct client contact.
+              A luxury real estate website designed with property listings,
+              video backgrounds, and WhatsApp inquiry system for direct client contact.
             </p>
             <div class="tags">
               <span>HTML</span><span>CSS</span><span>JavaScript</span>
             </div>
-            <a href="https://vilclaim.github.io/Prairies-Hills-Real-Estate/" class="project-btn"><i class="fa-solid fa-eye"></i> View </a>
+            <a href="https://vilclaim.github.io/Prairies-Hills-Real-Estate/" class="project-btn">
+              <i class="fa-solid fa-eye"></i> View
+            </a>
           </div>
         </div>
 
@@ -167,13 +196,15 @@
           <div class="project-info">
             <h3>Get & Buy Marketplace</h3>
             <p>
-              An online shopping platform with product categories, add-to-cart animation,
-              and WhatsApp checkout integration.
+              An online shopping platform with product categories,
+              add-to-cart animation, and WhatsApp checkout integration.
             </p>
             <div class="tags">
               <span>HTML</span><span>CSS</span><span>JS</span>
             </div>
-            <a href="https://vilclaim.github.io/getNbuy/" class="project-btn"><i class="fa-solid fa-eye"></i> View</a>
+            <a href="https://vilclaim.github.io/getNbuy/" class="project-btn">
+              <i class="fa-solid fa-eye"></i> View
+            </a>
           </div>
         </div>
 
@@ -183,15 +214,18 @@
           <div class="project-info">
             <h3>Personal Portfolio Website</h3>
             <p>
-              My own professional portfolio highlighting creative projects, skill sets,
-              and contact integration for clients.
+              My own professional portfolio highlighting creative projects,
+              skill sets, and client contact options.
             </p>
             <div class="tags">
               <span>Portfolio</span><span>UI/UX</span>
             </div>
-            <a href="#" class="project-btn"><i class="fa-solid fa-eye"></i> View</a>
+            <a href="#" class="project-btn">
+              <i class="fa-solid fa-eye"></i> View
+            </a>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -200,53 +234,61 @@
   <section id="contact" class="fade-up">
     <div class="container">
       <h2>Let's Connect</h2>
+
       <p>
         Interested in building your website or collaborating on a creative project?<br>
         Message me at <strong>+971 504238543</strong> or email <strong>vilandrew631@gmail.com</strong>.
       </p>
+
       <a href="https://wa.me/971504238543" class="btn-primary" target="_blank">
         <i class="fa-brands fa-whatsapp"></i> Message on WhatsApp
       </a>
-      <div class="socials">
-  <a href="https://www.facebook.com/share/1FfgXc7FMo/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-  <a href="https://www.instagram.com/vilandrewcalim?igsh=ZzJ0ZWx3cHcwbXZt" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-<a href="https://www.tiktok.com/@vilandrewcalim?_r=1&_t=ZS-91HFGKnxw82"><i class="fa-brands fa-tiktok"></i></a>
-</div>
 
+      <div class="socials">
+        <a href="https://www.facebook.com/share/1FfgXc7FMo/" target="_blank">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/vilandrewcalim?igsh=ZzJ0ZWx3cHcwbXZt" target="_blank">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.tiktok.com/@vilandrewcalim?_r=1&_t=ZS-91HFGKnxw82" target="_blank">
+          <i class="fa-brands fa-tiktok"></i>
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- PREMIUM ADS MODAL -->
-<div id="adsModal" class="ads-modal">
-  
-  <!-- TOP EXIT BUTTON -->
-  <div class="ads-exit-home" id="adsHomeExit">
-    <i class="fa-solid fa-xmark"></i>
-  </div>
+  <div id="adsModal" class="ads-modal">
 
-  <div class="ads-modal-content fade-up">
-
-    <h2 class="ads-title">My Digital Marketing Ads</h2>
-    <div class="ads-title-bar"></div>
-
-    <div class="ads-video-wrapper">
-      <div class="ads-video-item"><video src="1.mp4" controls></video></div>
-      <div class="ads-video-item"><video src="2.mp4" controls></video></div>
-      <div class="ads-video-item"><video src="3.mp4" controls></video></div>
-      <div class="ads-video-item"><video src="4.mp4" controls></video></div>
-      <div class="ads-video-item"><video src="5.mp4" controls></video></div>
+    <div class="ads-exit-home" id="adsHomeExit">
+      <i class="fa-solid fa-xmark"></i>
     </div>
 
+    <div class="ads-modal-content fade-up">
+      <h2 class="ads-title">My Digital Marketing Ads</h2>
+      <div class="ads-title-bar"></div>
+
+      <div class="ads-video-wrapper">
+        <div class="ads-video-item"><video src="1.mp4" controls></video></div>
+        <div class="ads-video-item"><video src="2.mp4" controls></video></div>
+        <div class="ads-video-item"><video src="3.mp4" controls></video></div>
+        <div class="ads-video-item"><video src="4.mp4" controls></video></div>
+        <div class="ads-video-item"><video src="5.mp4" controls></video></div>
+        <div class="ads-video-item"><video src="6.mp4" controls></video></div>
+        <div class="ads-video-item"><video src="7.mp4" controls></video></div>
+        <div class="ads-video-item"><video src="8.mp4" controls></video></div>
+      </div>
+    </div>
   </div>
-</div>
 
-
-
- <footer>
+  <!-- FOOTER -->
+  <footer>
     <p>© <span id="year"></span> Vil Andrew Calim</p>
   </footer>
 
   <!-- JS -->
   <script src="script.js"></script>
+
 </body>
 </html>
