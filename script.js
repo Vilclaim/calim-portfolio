@@ -1,42 +1,64 @@
-/* -------------------------------
-   DYNAMIC YEAR
---------------------------------*/
+// Dynamic Year
 document.getElementById("year").textContent = new Date().getFullYear();
 
-/* -------------------------------
-   STARFIELD BACKGROUND
---------------------------------*/
+// Preloader
+window.addEventListener("load", () => {
+  document.querySelector(".preloader").classList.add("hide");
+});
+
+// Mobile Menu
+const menuBtn = document.getElementById("menuBtn");
+const navbar = document.getElementById("navbar");
+
+menuBtn.addEventListener("click", () => {
+  navbar.classList.toggle("show");
+});
+
+document.querySelectorAll("nav a").forEach(link => {
+  link.addEventListener("click", () => {
+    navbar.classList.remove("show");
+  });
+});
+
+// Starry Background
 const canvas = document.getElementById("stars");
 const ctx = canvas.getContext("2d");
 
 let stars = [];
-let numStars = 140;
+let numStars = 160;
 
 function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 }
 resizeCanvas();
+
 window.addEventListener("resize", resizeCanvas);
 
-// create stars
-for (let i = 0; i < numStars; i++) {
-  stars.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    radius: Math.random() * 1.3,
-    speed: Math.random() * 0.5 + 0.3,
-  });
+function createStars() {
+  stars = [];
+
+  for (let i = 0; i < numStars; i++) {
+    stars.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.random() * 1.4 + 0.2,
+      speed: Math.random() * 0.5 + 0.15,
+      alpha: Math.random()
+    });
+  }
 }
+createStars();
 
 function drawStars() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "#00ffff";
 
   stars.forEach(star => {
     ctx.beginPath();
     ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(0, 245, 255, ${star.alpha})`;
     ctx.fill();
+
     star.y += star.speed;
 
     if (star.y > canvas.height) {
@@ -49,140 +71,431 @@ function drawStars() {
 }
 drawStars();
 
-/* -------------------------------
-   SCROLL ANIMATIONS
---------------------------------*/
-const scrollElements = document.querySelectorAll('.fade-up, .slide-in');
+// Typing Animation
+const words = [
+  "3D Portfolio Websites",
+  "Responsive Web Design",
+  "E-commerce Websites",
+  "Modern UI/UX Designs",
+  "Creative Digital Experiences"
+];
+
+let wordIndex = 0;
+let letterIndex = 0;
+let isDeleting = false;
+const typingText = document.getElementById("typing");
+
+function typeEffect() {
+  const currentWord = words[wordIndex];
+
+  if (isDeleting) {
+    typingText.textContent = currentWord.substring(0, letterIndex--);
+  } else {
+    typingText.textContent = currentWord.substring(0, letterIndex++);
+  }
+
+  if (!isDeleting && letterIndex === currentWord.length + 1) {
+    isDeleting = true;
+    setTimeout(typeEffect, 1200);
+    return;
+  }
+
+  if (isDeleting && letterIndex === 0) {
+    isDeleting = false;
+    wordIndex = (wordIndex + 1) % words.length;
+  }
+
+  setTimeout(typeEffect, isDeleting ? 45 : 80);
+}
+typeEffect();
+
+// Scroll Animations
+const scrollElements = document.querySelectorAll(".fade-up, .slide-in");
 
 const observer = new IntersectionObserver((entries, obs) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('show');
+      entry.target.classList.add("show");
       obs.unobserve(entry.target);
     }
   });
-}, { threshold: 0.2 });
+}, { threshold: 0.18 });
 
 scrollElements.forEach(el => observer.observe(el));
 
-/* -------------------------------
-   PREMIUM ADS MODAL OPEN/CLOSE
---------------------------------*/
-const adsModal = document.getElementById("adsModal");
-const viewAdsBtn = document.querySelector(".btn-view-ads");
-const adsExitHome = document.getElementById("adsHomeExit");
+// Skill Bars Animation
+const skillBars = document.querySelectorAll(".skill-bar span");
 
-// open modal
-viewAdsBtn.addEventListener("click", () => {
-  adsModal.style.display = "flex";
-});
+const skillObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.width = entry.target.dataset.width;
+    }
+  });
+}, { threshold: 0.6 });
 
-// close modal button
-adsExitHome.addEventListener("click", () => {
-  adsModal.style.display = "none";
-});
+skillBars.forEach(bar => skillObserver.observe(bar));
 
-// close modal when clicking outside
-window.addEventListener("click", (e) => {
-  if (e.target === adsModal) {
-    adsModal.style.display = "none";
-  }
-});
+// Counter Animation
+const counters = document.querySelectorAll("[data-count]");
 
-/* -------------------------------
-   HERO 3D PARALLAX MOVEMENT
---------------------------------*/
-document.addEventListener("mousemove", (e) => {
-  const hero = document.querySelector(".hero");
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const counter = entry.target;
+      const target = Number(counter.dataset.count);
+      let count = 0;
+      const speed = target / 60;
 
-  let x = (window.innerWidth / 2 - e.pageX) / 40;
-  let y = (window.innerHeight / 2 - e.pageY) / 40;
+      const updateCount = () => {
+        count += speed;
 
-  hero.style.transform = `rotateX(${y}deg) rotateY(${x}deg)`;
-});
+        if (count < target) {
+          counter.textContent = Math.ceil(count);
+          requestAnimationFrame(updateCount);
+        } else {
+          counter.textContent = target + (target === 100 ? "%" : "+");
+        }
+      };
 
-/* -------------------------------
-   PROJECT CARDS 3D TILT EFFECT
---------------------------------*/
-const cards = document.querySelectorAll(".project-card");
+      updateCount();
+      counterObserver.unobserve(counter);
+    }
+  });
+}, { threshold: 0.7 });
 
-cards.forEach(card => {
-  card.addEventListener("mousemove", (e) => {
+counters.forEach(counter => counterObserver.observe(counter));
+
+// 3D Tilt Cards
+const tiltCards = document.querySelectorAll(".tilt-card");
+
+tiltCards.forEach(card => {
+  card.addEventListener("mousemove", e => {
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
-    const rotateY = ((x - rect.width / 2) / 18).toFixed(2);
-    const rotateX = (-(y - rect.height / 2) / 18).toFixed(2);
+    const rotateX = ((y / rect.height) - 0.5) * -12;
+    const rotateY = ((x / rect.width) - 0.5) * 12;
 
-    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.07)`;
+    card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+    card.style.setProperty("--x", `${x}px`);
+    card.style.setProperty("--y", `${y}px`);
   });
 
   card.addEventListener("mouseleave", () => {
-    card.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
+    card.style.transform = "perspective(900px) rotateX(0deg) rotateY(0deg)";
   });
 });
 
-/* -------------------------------
-   FLOATING HOLOGRAM IMAGE
---------------------------------*/
-const floatingHolo = document.querySelector(".floating-holo");
+// Cursor Glow
+const cursor=document.querySelector(".cursor");
 
-if (floatingHolo) {
-  let angle = 0;
+document.addEventListener("mousemove",(e)=>{
 
-  function animateHolo() {
-    angle += 0.02;
-    const y = Math.sin(angle) * 12;
-    floatingHolo.style.transform = `translateY(${y}px)`;
-    requestAnimationFrame(animateHolo);
+cursor.style.left=e.clientX+"px";
+cursor.style.top=e.clientY+"px";
+
+});
+
+document.querySelectorAll("a,button,.project-card,.skill-card,.service-card")
+.forEach(el=>{
+
+el.addEventListener("mouseenter",()=>{
+
+cursor.classList.add("hover");
+
+});
+
+el.addEventListener("mouseleave",()=>{
+
+cursor.classList.remove("hover");
+
+});
+
+});
+
+// Scroll Progress + Back To Top
+const progress = document.querySelector(".scroll-progress");
+const backTop = document.getElementById("backTop");
+
+window.addEventListener("scroll", () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.body.scrollHeight - window.innerHeight;
+  const progressWidth = (scrollTop / docHeight) * 100;
+
+  progress.style.width = `${progressWidth}%`;
+
+  if (scrollTop > 500) {
+    backTop.style.display = "block";
+  } else {
+    backTop.style.display = "none";
   }
 
-  animateHolo();
+  activeNavLink();
+});
+
+backTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// Active Navbar Link
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav a");
+
+function activeNavLink() {
+  let current = "";
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 160;
+    const sectionHeight = section.offsetHeight;
+
+    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove("active");
+
+    if (link.getAttribute("href") === `#${current}`) {
+      link.classList.add("active");
+    }
+  });
 }
 
-/* -------------------------------
-   HOLOGRAM LIGHT SWEEP ON HERO IMAGE
---------------------------------*/
-const heroImage = document.querySelector(".hero-image img");
 
-if (heroImage) {
-  let glowDirection = 1;
-  let glowValue = 0;
+// Work Modal
+const workModal = document.getElementById("workModal");
+const openWorkModal = document.querySelector(".open-work-modal");
+const closeWorkModal = document.querySelector(".close-work-modal");
 
-  function glowEffect() {
-    glowValue += glowDirection * 0.03;
+openWorkModal.addEventListener("click", () => {
+  workModal.classList.add("show");
+  document.body.style.overflow = "hidden";
+});
 
-    if (glowValue > 1) glowDirection = -1;
-    if (glowValue < 0) glowDirection = 1;
+closeWorkModal.addEventListener("click", () => {
+  workModal.classList.remove("show");
+  document.body.style.overflow = "auto";
+});
 
-    heroImage.style.filter = `drop-shadow(0 0 ${20 + glowValue * 20}px cyan)`;
-
-    requestAnimationFrame(glowEffect);
+workModal.addEventListener("click", (e) => {
+  if (e.target === workModal) {
+    workModal.classList.remove("show");
+    document.body.style.overflow = "auto";
   }
+});
 
-  glowEffect();
+/* ===========================================
+   DESIGN PREVIEW GALLERY
+=========================================== */
+
+const galleries = {
+
+logo: [
+
+{
+image:"logo1.jpg",
+title:"Logo Design",
+category:"Branding",
+description:"Professional logo created for branding."
+},
+
+{
+image:"logo2.jpg",
+title:"Luxury Logo",
+category:"Branding",
+description:"Modern premium logo."
+},
+
+{
+image:"logo3.jpg",
+title:"Corporate Logo",
+category:"Branding",
+description:"Business identity design."
 }
 
-/* -------------------------------
-   ABOUT ME HOLOGRAM PULSE RING
---------------------------------*/
-const aboutRing = document.querySelector(".aboutme-image");
+],
 
-if (aboutRing) {
-  let pulse = 0;
-  let pulseDir = 1;
+website:[
 
-  function pulseAnimation() {
-    pulse += pulseDir * 0.02;
+{
+image:"website1.jpg",
+title:"Website UI",
+category:"Web Design",
+description:"Modern responsive website."
+},
 
-    if (pulse > 1) pulseDir = -1;
-    if (pulse < 0) pulseDir = 1;
+{
+image:"website2.jpg",
+title:"Landing Page",
+category:"Web Design",
+description:"Clean landing page."
+},
 
-    aboutRing.style.filter = `drop-shadow(0 0 ${10 + pulse * 15}px cyan)`;
-
-    requestAnimationFrame(pulseAnimation);
-  }
-
-  pulseAnimation();
+{
+image:"website3.jpg",
+title:"Dashboard",
+category:"Web Design",
+description:"Admin dashboard."
 }
+
+],
+
+poster:[
+
+{
+image:"poster1.jpg",
+title:"Poster Design",
+category:"Poster",
+description:"Advertising poster."
+},
+
+{
+image:"poster2.jpg",
+title:"Product Promotion",
+category:"Poster",
+description:"Social media design."
+}
+
+],
+
+packaging:[
+
+{
+image:"package1.jpg",
+title:"Perfume Packaging",
+category:"Packaging",
+description:"Luxury perfume box."
+},
+
+{
+image:"package2.jpg",
+title:"Bottle Design",
+category:"Packaging",
+description:"Bottle presentation."
+}
+
+],
+
+product3d:[
+
+{
+image:"3d1.jpg",
+title:"3D Bottle",
+category:"3D Design",
+description:"3D perfume render."
+},
+
+{
+image:"3d2.jpg",
+title:"Luxury Bottle",
+category:"3D Design",
+description:"Product visualization."
+}
+
+]
+
+};
+
+const previewModal=document.getElementById("designPreviewModal");
+
+const previewImage=document.getElementById("previewImage");
+
+const previewCategory=document.getElementById("previewCategory");
+
+const previewTitle=document.getElementById("previewTitle");
+
+const previewDescription=document.getElementById("previewDescription");
+
+const previewCounter=document.getElementById("previewCounter");
+
+const prevBtn=document.getElementById("prevDesign");
+
+const nextBtn=document.getElementById("nextDesign");
+
+const closePreview=document.querySelector(".close-preview-modal");
+
+let currentGallery=[];
+
+let currentIndex=0;
+
+function loadPreview(){
+
+const item=currentGallery[currentIndex];
+
+previewImage.src=item.image;
+
+previewCategory.textContent=item.category;
+
+previewTitle.textContent=item.title;
+
+previewDescription.textContent=item.description;
+
+previewCounter.textContent=
+`${currentIndex+1} / ${currentGallery.length}`;
+
+}
+
+document.querySelectorAll(".view-design-btn").forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+const galleryName=btn.dataset.gallery;
+
+currentGallery=galleries[galleryName];
+
+currentIndex=0;
+
+loadPreview();
+
+previewModal.classList.add("show");
+
+});
+
+});
+
+nextBtn.addEventListener("click",()=>{
+
+currentIndex++;
+
+if(currentIndex>=currentGallery.length){
+
+currentIndex=0;
+
+}
+
+loadPreview();
+
+});
+
+prevBtn.addEventListener("click",()=>{
+
+currentIndex--;
+
+if(currentIndex<0){
+
+currentIndex=currentGallery.length-1;
+
+}
+
+loadPreview();
+
+});
+
+closePreview.addEventListener("click",()=>{
+
+previewModal.classList.remove("show");
+
+});
+
+previewModal.addEventListener("click",e=>{
+
+if(e.target===previewModal){
+
+previewModal.classList.remove("show");
+
+}
+
+});
