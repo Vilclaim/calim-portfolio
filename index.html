@@ -3,293 +3,531 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vil Andrew Calim • Web Designer</title>
+
+  <title>Vil Andrew Calim • Portfolio</title>
   <link rel="icon" type="image/png" href="villogo.jpg">
 
-  <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <!-- HEADER -->
+  <div class="preloader">
+    <h1>VIL ANDREW CALIM</h1>
+    <span>Loading Portfolio...</span>
+  </div>
+
+  <div class="cursor"></div>
+  <div class="scroll-progress"></div>
+
   <header>
-    <div class="container">
-      <div class="logo">VIL ANDREW CALIM</div>
-      <nav>
-        <a href="#about">About</a>
+    <div class="container nav-container">
+      <a href="#home" class="logo">VIL<span>.</span></a>
+
+      <nav id="navbar">
+        <a href="#home">Home</a>
+        <a href="#aboutme">About</a>
+        <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#contact" class="contact-btn">Contact</a>
       </nav>
+
+      <button class="menu-btn" id="menuBtn" type="button">
+        <i class="fa-solid fa-bars"></i>
+      </button>
     </div>
   </header>
 
-  <!-- HERO SECTION WITH 3D + HOLOGRAM -->
-  <section class="hero fade-up">
+  <section class="hero" id="home">
     <canvas id="stars"></canvas>
+    <div class="hero-glow glow-one"></div>
+    <div class="hero-glow glow-two"></div>
 
-    <!-- 3D floating neon shapes -->
-    <div class="hero-orbits" data-depth="0.08">
-      <div class="orbit-ring orbit-1"></div>
-      <div class="orbit-ring orbit-2"></div>
-      <div class="orbit-sphere sphere-1"></div>
-      <div class="orbit-sphere sphere-2"></div>
+    <div class="container hero-container">
+      <div class="hero-content fade-up">
+        <span class="mini-title">Hello, I'm</span>
+        <h1>Vil Andrew Calim</h1>
+        <h2>I build <span id="typing"></span></h2>
 
-      <div class="cube-3d">
-        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <p>
+          IT student, web designer, and creative developer focused on building
+          clean, responsive, and professional digital experiences.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="btn-primary">View Projects</a>
+          <a href="#contact" class="btn-secondary">Hire Me</a>
+        </div>
+
+        <div class="hero-stats">
+          <div>
+            <strong data-count="12">0</strong>
+            <span>Projects</span>
+          </div>
+
+          <div>
+            <strong data-count="100">0</strong>
+            <span>Responsive</span>
+          </div>
+
+          <div>
+            <strong data-count="8">0</strong>
+            <span>Technologies</span>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <!-- Hologram floating Vil -->
-    <div class="floating-holo vil-holo" data-depth="0.4">
-      <div class="holo-frame holo-small">
-        <img src="VILAND.jpeg" alt="Vil Andrew Hologram">
-        <span class="holo-tag">VIL</span>
-      </div>
-    </div>
-
-    <!-- Hero text -->
-    <div class="hero-content" data-depth="0.2">
-      <h1>WEB DESIGNS THAT WORK<br>FOR YOUR BUSINESS</h1>
-
-      <p class="tagline">
-        ELEGANT DESIGNS · CLEAR STRATEGY · REAL RESULTS<br>
-        Turning your ideas into engaging, responsive websites.
-      </p>
-
-      <a href="#contact" class="btn-primary">Let’s Talk</a>
-    </div>
-
-    <!-- Main hologram image -->
-    <div class="hero-image slide-in" data-depth="0.32">
-      <div class="holo-frame hero-holo">
-        <span class="holo-tag">WEB DESIGNER</span>
-        <img src="designer.png" alt="Futuristic Web Design">
-        <div class="holo-scan"></div>
+      <div class="hero-image slide-in tilt-card">
+        <div class="image-ring"></div>
+        <img src="designer.png" alt="Vil Andrew Portfolio">
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about" class="fade-up">
+  <section id="about" class="section fade-up">
     <div class="container about-container">
       <div class="about-text">
-        <h2>About This Website</h2>
+        <span class="section-label">Portfolio Website</span>
+        <h2>Premium Web Design With Strategy</h2>
         <p>
-          This portfolio website was designed and built by <strong>Vil Andrew Calim</strong> to showcase
-          his creativity, development skills, and passion for building clean and effective web experiences.
+          This portfolio was designed and developed by <strong>Vil Andrew Calim</strong>
+          to showcase creativity, coding skills, and professional web design.
         </p>
-
         <p>
-          Inspired by modern agency designs, this site combines <strong>UI/UX design</strong>,
-          <strong>front-end coding</strong>, and <strong>digital marketing strategy</strong> to create a
-          smooth, professional experience that reflects the work I deliver to clients.
-        </p>
-
-        <p>
-          Every section — from the <em>starry animated background</em> to the <em>scroll-triggered animations</em> —
-          represents attention to detail, responsiveness, and storytelling through design.
+          It combines modern UI/UX, responsive layouts, smooth animation,
+          3D-style effects, and clean front-end development.
         </p>
 
         <div class="about-highlights">
-          <div class="highlight">
+          <div class="highlight tilt-card">
             <i class="fa-solid fa-laptop-code"></i>
             <h3>Creative Coding</h3>
-            <p>Hand-coded using HTML, CSS, and JavaScript for smooth performance and responsive design.</p>
+            <p>Hand-coded with HTML, CSS, and JavaScript.</p>
           </div>
 
-          <div class="highlight">
+          <div class="highlight tilt-card">
             <i class="fa-solid fa-bullhorn"></i>
             <h3>Digital Presence</h3>
-            <p>Showcases real projects like <strong>Get & Buy Marketplace</strong> and <strong>Prairies Hills Real Estate</strong>.</p>
+            <p>Websites designed for business and branding.</p>
           </div>
 
-          <div class="highlight">
-            <i class="fa-solid fa-user-astronaut"></i>
-            <h3>Modern Design</h3>
-            <p>Inspired by futuristic agency styles — clean, bold, and visually dynamic.</p>
+          <div class="highlight tilt-card">
+            <i class="fa-solid fa-layer-group"></i>
+            <h3>Modern UI</h3>
+            <p>Clean, futuristic, and responsive interface.</p>
           </div>
         </div>
-
-        <a href="#contact" class="btn-primary">Contact Me</a>
       </div>
 
-      <div class="about-image slide-in">
-        <img src="OIP.webp" alt="Vil Andrew Web Designer">
+      <div class="about-image slide-in tilt-card">
+        <img src="OIP.webp" alt="Web Design">
       </div>
     </div>
   </section>
 
-  <!-- ABOUT ME SECTION -->
-  <section id="aboutme" class="fade-up">
+  <section id="aboutme" class="section fade-up">
     <div class="container aboutme-container">
-      <div class="aboutme-image slide-in" data-depth="0.25">
+      <div class="aboutme-image tilt-card">
         <img src="Vil.png" alt="Vil Andrew Calim">
       </div>
 
       <div class="aboutme-text">
-        <h2>About Me</h2>
-        <p>Hello! I'm <strong>Vil Andrew Calim</strong>, an <strong>IT student </strong> passionate about
-          combining creativity, design, and technology to craft clean and engaging web experiences.</p>
+        <span class="section-label">About Me</span>
+        <h2>Creative IT Student & Web Designer</h2>
 
         <p>
-          I focus on building responsive websites that reflect both functionality and aesthetic value.
-          I also enjoy exploring <strong>digital marketing</strong> and <strong>UI/UX design</strong>,
-          blending creativity and business strategy in every project I create.
+          Hello! I'm <strong>Vil Andrew Calim</strong>, an IT student passionate about
+          web development, UI/UX design, digital marketing, and creative online business.
+        </p>
+
+        <p>
+          I build responsive websites that are clean, modern, and easy to use.
+          My goal is to create websites that look professional and help businesses grow.
         </p>
 
         <div class="aboutme-highlights">
-          <div class="aboutme-card">
+          <div class="aboutme-card tilt-card">
             <i class="fa-solid fa-code"></i>
             <h3>Web Development</h3>
-            <p>Front-end development using HTML, CSS, and JavaScript with responsive, mobile-first layouts.</p>
+            <p>HTML, CSS, JavaScript, responsive design.</p>
           </div>
 
-          <div class="aboutme-card">
+          <div class="aboutme-card tilt-card">
+            <i class="fa-solid fa-palette"></i>
+            <h3>UI/UX Design</h3>
+            <p>Modern layouts, smooth user experience.</p>
+          </div>
+
+          <div class="aboutme-card tilt-card">
             <i class="fa-solid fa-bullhorn"></i>
-            <h3>Digital Marketing</h3>
-            <p>Experience in social media content, online ads, and product promotion campaigns.</p>
-
-            <a href="#ads-gallery" class="btn-neon btn-view-ads">
-  <i class="fa-solid fa-play"></i> View My Ads
-</a>
-
+            <h3>Marketing</h3>
+            <p>Branding, social content, product promotion.</p>
           </div>
         </div>
 
-        <a href="#projects" class="btn-primary">View My Projects</a>
+        <button class="btn-primary open-work-modal" type="button">View My Work</button>
       </div>
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="fade-up">
+  <section id="certificate" class="section fade-up">
+    <div class="container certificate-box tilt-card">
+      <div class="certificate-text">
+        <span class="section-label">Certificate Verification</span>
+        <h2>Creative Web Design Certificate</h2>
+        <p>
+          Scan this QR code to verify my creative web design certificate and training achievement.
+        </p>
+      </div>
+
+      <div class="qr-card">
+        <img src="qr coe in web uiux.png" alt="Web Design Certificate QR Code">
+        <h3>Scan to Verify</h3>
+        <p>Creative Web Design Certificate</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section fade-up">
     <div class="container">
-      <h2 class="section-title">My Featured Projects</h2>
-      <p class="section-subtitle">Here are some of my real works in web design and creative projects.</p>
+      <span class="section-label center">My Skills</span>
+      <h2 class="section-title">Technologies & Creative Skills</h2>
+
+      <div class="skills-grid">
+        <div class="skill-card tilt-card">
+          <i class="fa-brands fa-html5"></i>
+          <h3>HTML</h3>
+          <div class="skill-bar"><span data-width="95%"></span></div>
+        </div>
+
+        <div class="skill-card tilt-card">
+          <i class="fa-brands fa-css3-alt"></i>
+          <h3>CSS</h3>
+          <div class="skill-bar"><span data-width="90%"></span></div>
+        </div>
+
+        <div class="skill-card tilt-card">
+          <i class="fa-brands fa-js"></i>
+          <h3>JavaScript</h3>
+          <div class="skill-bar"><span data-width="85%"></span></div>
+        </div>
+
+        <div class="skill-card tilt-card">
+          <i class="fa-solid fa-mobile-screen"></i>
+          <h3>Responsive Design</h3>
+          <div class="skill-bar"><span data-width="92%"></span></div>
+        </div>
+
+        <div class="skill-card tilt-card">
+          <i class="fa-solid fa-paintbrush"></i>
+          <h3>UI/UX Design</h3>
+          <div class="skill-bar"><span data-width="88%"></span></div>
+        </div>
+
+        <div class="skill-card tilt-card">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <h3>E-commerce</h3>
+          <div class="skill-bar"><span data-width="80%"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="section fade-up">
+    <div class="container">
+      <span class="section-label center">Services</span>
+      <h2 class="section-title">What I Can Build</h2>
+
+      <div class="services-grid">
+        <div class="service-card tilt-card">
+          <i class="fa-solid fa-globe"></i>
+          <h3>Business Website</h3>
+          <p>Clean professional websites for brands, services, and portfolios.</p>
+        </div>
+
+        <div class="service-card tilt-card">
+          <i class="fa-solid fa-store"></i>
+          <h3>E-commerce Website</h3>
+          <p>Online shops with product cards, cart, checkout, and WhatsApp order.</p>
+        </div>
+
+        <div class="service-card tilt-card">
+          <i class="fa-solid fa-house-chimney"></i>
+          <h3>Real Estate Website</h3>
+          <p>Property listing websites with gallery, inquiry buttons, and filters.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section fade-up">
+    <div class="container">
+      <span class="section-label center">Featured Projects</span>
+      <h2 class="section-title">My Real Web Projects</h2>
+      <p class="section-subtitle">A collection of my web design and development works.</p>
 
       <div class="projects-grid">
-        <!-- Project 1 -->
-        <div class="project-card fade-up">
-          <img src="prairies.jpg" alt="Prairies Hills Real Estate">
+        <div class="project-card tilt-card">
+          <div class="project-img">
+            <img src="prairies.jpg" alt="Prairies Hills Real Estate">
+          </div>
           <div class="project-info">
             <h3>Prairies Hills Real Estate</h3>
-            <p>
-              A luxury real estate website designed with property listings,
-              video backgrounds, and WhatsApp inquiry system for direct client contact.
-            </p>
+            <p>Luxury real estate website with listings, video background, and WhatsApp inquiry.</p>
             <div class="tags">
               <span>HTML</span><span>CSS</span><span>JavaScript</span>
             </div>
-            <a href="https://vilclaim.github.io/Prairies-Hills-Real-Estate/" class="project-btn">
-              <i class="fa-solid fa-eye"></i> View
+            <a href="https://vilclaim.github.io/Prairies-Hills-Real-Estate/" target="_blank" class="project-btn">
+              <i class="fa-solid fa-eye"></i> Live Demo
             </a>
           </div>
         </div>
 
-        <!-- Project 2 -->
-        <div class="project-card fade-up">
-          <img src="get.jpeg" alt="Get & Buy Marketplace">
+        <div class="project-card tilt-card">
+          <div class="project-img">
+            <img src="get.jpeg" alt="Get & Buy Marketplace">
+          </div>
           <div class="project-info">
             <h3>Get & Buy Marketplace</h3>
-            <p>
-              An online shopping platform with product categories,
-              add-to-cart animation, and WhatsApp checkout integration.
-            </p>
+            <p>Online shopping platform with categories, cart animation, and WhatsApp checkout.</p>
             <div class="tags">
-              <span>HTML</span><span>CSS</span><span>JS</span>
+              <span>HTML</span><span>CSS</span><span>JavaScript</span>
             </div>
-            <a href="https://vilclaim.github.io/getNbuy/" class="project-btn">
-              <i class="fa-solid fa-eye"></i> View
+            <a href="https://vilclaim.github.io/getNbuy/" target="_blank" class="project-btn">
+              <i class="fa-solid fa-eye"></i> Live Demo
             </a>
           </div>
         </div>
 
-        <!-- Project 3 -->
-        <div class="project-card fade-up">
-          <img src="villogo.jpg" alt="Personal Portfolio">
+        <div class="project-card tilt-card">
+          <div class="project-img">
+            <img src="undercover-og.jpg" alt="UNDERCOVER-OG">
+          </div>
           <div class="project-info">
-            <h3>Personal Portfolio Website</h3>
+            <h3>UNDERCOVER-OG</h3>
             <p>
-              My own professional portfolio highlighting creative projects,
-              skill sets, and client contact options.
+              Full-stack e-commerce platform with authentication, shopping cart,
+              admin dashboard, product management, orders, and responsive design.
             </p>
             <div class="tags">
-              <span>Portfolio</span><span>UI/UX</span>
+              <span>Node.js</span><span>MongoDB</span><span>Express</span><span>JavaScript</span>
             </div>
-            <a href="#" class="project-btn">
-              <i class="fa-solid fa-eye"></i> View
+            <a href="https://undercover-og-com.onrender.com/" target="_blank" class="project-btn">
+              <i class="fa-solid fa-eye"></i> Live Demo
             </a>
           </div>
         </div>
 
+        <div class="project-card tilt-card">
+          <div class="project-img">
+            <img src="silver-promotion.jpg" alt="Silver Century Promotion">
+          </div>
+          <div class="project-info">
+            <h3>Silver Century Promotion</h3>
+            <p>
+              Airline promotion management system with promo rates, route filters,
+              airline management, and a responsive travel dashboard.
+            </p>
+            <div class="tags">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Dashboard</span>
+            </div>
+            <a href="https://vilclaim.github.io/silvercenturypromotion.com/#promos" target="_blank" class="project-btn">
+              <i class="fa-solid fa-eye"></i> Live Demo
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card tilt-card">
+          <div class="project-img">
+            <img src="daily-report.jpg" alt="Daily Report Dashboard">
+          </div>
+          <div class="project-info">
+            <h3>Silver Century Daily Report</h3>
+            <p>
+              Daily and monthly report dashboard for monitoring inquiries,
+              bookings, targets, records, and agent performance analytics.
+            </p>
+            <div class="tags">
+              <span>Dashboard</span><span>Reports</span><span>Analytics</span><span>JavaScript</span>
+            </div>
+            <a href="https://vilclaim.github.io/dailyReport/" target="_blank" class="project-btn">
+              <i class="fa-solid fa-eye"></i> Live Demo
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card tilt-card">
+          <div class="project-img">
+            <img src="villogo.jpg" alt="Personal Portfolio">
+          </div>
+          <div class="project-info">
+            <h3>Personal Portfolio</h3>
+            <p>Modern personal website with animation, responsive layout, and project showcase.</p>
+            <div class="tags">
+              <span>Portfolio</span><span>UI/UX</span><span>3D Design</span>
+            </div>
+            <a href="#home" class="project-btn">
+              <i class="fa-solid fa-eye"></i> View
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="fade-up">
+  <section id="timeline" class="section fade-up">
     <div class="container">
-      <h2>Let's Connect</h2>
+      <span class="section-label center">Journey</span>
+      <h2 class="section-title">My Creative Timeline</h2>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <span>2023</span>
+          <h3>Started Web Design</h3>
+          <p>Learning HTML, CSS, and creative website layouts.</p>
+        </div>
+
+        <div class="timeline-item">
+          <span>2024</span>
+          <h3>IT Student</h3>
+          <p>Improving technical knowledge and development skills.</p>
+        </div>
+
+        <div class="timeline-item">
+          <span>2025</span>
+          <h3>Digital Marketing</h3>
+          <p>Gained experience in branding, promotion, and online business.</p>
+        </div>
+
+        <div class="timeline-item">
+          <span>2026</span>
+          <h3>Full Website Projects</h3>
+          <p>Building portfolio, e-commerce, dashboards, and real estate web systems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section fade-up">
+    <div class="container contact-box tilt-card">
+      <span class="section-label center">Contact</span>
+      <h2>Let's Build Something Professional</h2>
 
       <p>
-        Interested in building your website or collaborating on a creative project?<br>
-        Message me at <strong>+971 504238543</strong> or email <strong>vilandrew631@gmail.com</strong>.
+        Interested in building your website or collaborating on a creative project?
+        Message me directly.
       </p>
+
+      <div class="contact-info">
+        <a href="tel:+971504238543"><i class="fa-solid fa-phone"></i> +971 504238543</a>
+        <a href="mailto:vilandrew631@gmail.com"><i class="fa-solid fa-envelope"></i> vilandrew631@gmail.com</a>
+        <span><i class="fa-solid fa-location-dot"></i> Dubai, UAE</span>
+      </div>
 
       <a href="https://wa.me/971504238543" class="btn-primary" target="_blank">
         <i class="fa-brands fa-whatsapp"></i> Message on WhatsApp
       </a>
 
       <div class="socials">
-        <a href="https://www.facebook.com/share/1FfgXc7FMo/" target="_blank">
-          <i class="fa-brands fa-facebook-f"></i>
-        </a>
-        <a href="https://www.instagram.com/vilandrewcalim?igsh=ZzJ0ZWx3cHcwbXZt" target="_blank">
-          <i class="fa-brands fa-instagram"></i>
-        </a>
-        <a href="https://www.tiktok.com/@vilandrewcalim?_r=1&_t=ZS-91HFGKnxw82" target="_blank">
-          <i class="fa-brands fa-tiktok"></i>
-        </a>
+        <a href="https://www.facebook.com/share/1FfgXc7FMo/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/vilandrewcalim?igsh=ZzJ0ZWx3cHcwbXZt" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@vilandrewcalim?_r=1&_t=ZS-91HFGKnxw82" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
       </div>
     </div>
   </section>
 
-  <!-- PREMIUM ADS MODAL -->
-  <div id="adsModal" class="ads-modal">
+  <div class="work-modal" id="workModal">
+    <div class="work-modal-content">
+      <button class="close-work-modal" type="button">&times;</button>
 
-    <div class="ads-exit-home" id="adsHomeExit">
-      <i class="fa-solid fa-xmark"></i>
-    </div>
+      <span class="section-label center">My Creative Works</span>
+      <h2>Creative Design Gallery</h2>
+      <p class="work-subtitle">
+        A showcase of my logo designs, packaging concepts, website UI, posters, and 3D product visuals.
+      </p>
 
-    <div class="ads-modal-content fade-up">
-      <h2 class="ads-title">My Digital Marketing Ads</h2>
-      <div class="ads-title-bar"></div>
+      <div class="work-grid">
+        <div class="work-card">
+          <img src="logo-design.jpg" alt="Logo Design">
+          <span>Branding</span>
+          <h3>Logo Design</h3>
+          <p>Brand identity and logo concepts.</p>
+          <button class="view-design-btn" data-gallery="logo">View Design</button>
+        </div>
 
-      <div class="ads-video-wrapper">
-        <div class="ads-video-item"><video src="1.mp4" controls></video></div>
-        <div class="ads-video-item"><video src="2.mp4" controls></video></div>
-        <div class="ads-video-item"><video src="3.mp4" controls></video></div>
-        <div class="ads-video-item"><video src="4.mp4" controls></video></div>
-        <div class="ads-video-item"><video src="5.mp4" controls></video></div>
-        <div class="ads-video-item"><video src="6.mp4" controls></video></div>
-        <div class="ads-video-item"><video src="7.mp4" controls></video></div>
-        <div class="ads-video-item"><video src="8.mp4" controls></video></div>
+        <div class="work-card">
+          <img src="packaging-design.jpg" alt="Packaging Design">
+          <span>Packaging</span>
+          <h3>Perfume Packaging</h3>
+          <p>Perfume box, bottle label, and luxury product presentation.</p>
+          <button class="view-design-btn" data-gallery="packaging">View Design</button>
+        </div>
+
+        <div class="work-card">
+          <img src="website-ui.jpg" alt="Website UI Design">
+          <span>Web Design</span>
+          <h3>Website UI Design</h3>
+          <p>Modern website layouts, e-commerce UI, and landing page concepts.</p>
+          <button class="view-design-btn" data-gallery="website">View Design</button>
+        </div>
+
+        <div class="work-card">
+          <img src="poster-design.jpg" alt="Poster Design">
+          <span>Poster</span>
+          <h3>Social Media Poster</h3>
+          <p>Creative promotional posters for products and brands.</p>
+          <button class="view-design-btn" data-gallery="poster">View Design</button>
+        </div>
+
+        <div class="work-card">
+          <img src="product-3d.jpg" alt="3D Product Design">
+          <span>3D Design</span>
+          <h3>3D Product Design</h3>
+          <p>Premium product mockups, bottle designs, and presentation visuals.</p>
+          <button class="view-design-btn" data-gallery="product3d">View Design</button>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- FOOTER -->
+  <div class="design-preview-modal" id="designPreviewModal">
+    <div class="design-preview-content">
+      <button class="close-preview-modal" type="button">&times;</button>
+
+      <div class="preview-media">
+        <img id="previewImage" src="" alt="Design Preview">
+      </div>
+
+      <div class="preview-info">
+        <span id="previewCategory"></span>
+        <h2 id="previewTitle"></h2>
+        <p id="previewDescription"></p>
+
+        <div class="preview-controls">
+          <button id="prevDesign" type="button">
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+
+          <span id="previewCounter">1 / 1</span>
+
+          <button id="nextDesign" type="button">
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <footer>
-    <p>© <span id="year"></span> Vil Andrew Calim</p>
+    <p>Designed & Developed by <strong>Vil Andrew Calim</strong></p>
+    <p>© <span id="year"></span> All Rights Reserved</p>
   </footer>
 
-  <!-- JS -->
-  <script src="script.js"></script>
+  <button id="backTop" type="button"><i class="fa-solid fa-arrow-up"></i></button>
 
+  <script src="script.js"></script>
 </body>
 </html>
-
