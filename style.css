@@ -930,11 +930,40 @@ nav a.active {
   place-items: center;
 }
 
-.preview-media img {
-  width: 100%;
-  max-height: 620px;
-  object-fit: contain;
-  border-radius: 20px;
+.preview-media{
+    background:rgba(255,255,255,.05);
+    border:1px solid var(--border);
+    border-radius:26px;
+    padding:16px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    min-height:620px;
+}
+
+#previewMedia{
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+#previewMedia img,
+#previewMedia video{
+
+    width:100%;
+    max-height:620px;
+    object-fit:contain;
+    border-radius:20px;
+
+}
+
+#previewMedia video{
+
+    background:#000;
+
 }
 
 .preview-info {
