@@ -296,17 +296,35 @@ const galleries = {
 logo: [
 
 {
-image:"logo1.jpg",
-title:"Logo Design",
-category:"Branding",
-description:"Professional logo created for branding."
+type:"video",
+src:"1.mp4",
+title:"Ads Promotion",
+category:"Advertising",
+description:"Professional social media advertisement for flight ticket and marketing campaign."
 },
 
 {
-image:"logo2.jpg",
-title:"Luxury Logo",
-category:"Branding",
-description:"Modern premium logo."
+type:"video",
+src:"cebuads.mp4",
+title:"Ads Promotion",
+category:"Advertising",
+description:"Professional social media advertisement for flight ticket and marketing campaign."
+},
+
+{
+type:"video",
+src:"b2b ads.mp4",
+title:"Ads Promotion",
+category:"Advertising",
+description:"Professional social media advertisement for b2b visa change and marketing campaign."
+},
+
+{
+type:"video",
+src:"empact ads.mp4",
+title:"Ads Promotion",
+category:"Advertising",
+description:"Professional social media advertisement for b2b visa change and marketing campaign."
 },
 
 {
@@ -321,21 +339,28 @@ description:"Business identity design."
 website:[
 
 {
-image:"website1.jpg",
+image:"image.png",
 title:"Website UI",
 category:"Web Design",
 description:"Modern responsive website."
 },
 
 {
-image:"website2.jpg",
+image:"image1.png",
 title:"Landing Page",
 category:"Web Design",
 description:"Clean landing page."
 },
 
 {
-image:"website3.jpg",
+image:"daily1.png",
+title:"Landing Page",
+category:"Web Design",
+description:"Clean landing page."
+},
+
+{
+image:"dailysheet.png",
 title:"Dashboard",
 category:"Web Design",
 description:"Admin dashboard."
@@ -343,17 +368,18 @@ description:"Admin dashboard."
 
 ],
 
+
 poster:[
 
 {
-image:"poster1.jpg",
+image:"b2b visa change.jpg",
 title:"Poster Design",
 category:"Poster",
 description:"Advertising poster."
 },
 
 {
-image:"poster2.jpg",
+image:"A2A visa change.jpg",
 title:"Product Promotion",
 category:"Poster",
 description:"Social media design."
@@ -371,7 +397,7 @@ description:"Luxury perfume box."
 },
 
 {
-image:"package2.jpg",
+image:"bottle dewsign.jpeg",
 title:"Bottle Design",
 category:"Packaging",
 description:"Bottle presentation."
@@ -382,15 +408,50 @@ description:"Bottle presentation."
 product3d:[
 
 {
-image:"3d1.jpg",
+image:"bottle design .jpeg",
 title:"3D Bottle",
 category:"3D Design",
 description:"3D perfume render."
 },
 
 {
-image:"3d2.jpg",
+image:"bottle 3.jpeg",
 title:"Luxury Bottle",
+category:"3D Design",
+description:"Product visualization."
+},
+
+{
+image:"bottle 2.jpeg",
+title:"Luxury Bottle",
+category:"3D Design",
+description:"Product visualization."
+},
+
+{
+image:"Hl.jpeg",
+title:"HELLO LADIES DESIGN",
+category:"3D Design",
+description:"Product visualization."
+},
+
+{
+image:"Hl2.jpeg",
+title:"TELFORD INTERNATIONAL DESIGN",
+category:"3D Design",
+description:"Product visualization."
+},
+
+{
+image:"Ud.jpeg",
+title:"TELFORD INTERNATIONAL DESIGN",
+category:"3D Design",
+description:"Product visualization."
+},
+
+{
+image:"Ud1.jpeg",
+title:"TELFORD INTERNATIONAL DESIGN",
 category:"3D Design",
 description:"Product visualization."
 }
@@ -401,7 +462,7 @@ description:"Product visualization."
 
 const previewModal=document.getElementById("designPreviewModal");
 
-const previewImage=document.getElementById("previewImage");
+const previewMedia=document.getElementById("previewMedia");
 
 const previewCategory=document.getElementById("previewCategory");
 
@@ -425,7 +486,48 @@ function loadPreview(){
 
 const item=currentGallery[currentIndex];
 
-previewImage.src=item.image;
+if(item.type==="video"){
+
+previewMedia.innerHTML=`
+
+<video
+controls
+autoplay
+muted
+playsinline
+style="
+width:100%;
+height:100%;
+border-radius:18px;
+object-fit:contain;
+background:#000;
+">
+
+<source src="${item.src}" type="video/mp4">
+
+Your browser does not support video.
+
+</video>
+
+`;
+
+}else{
+
+previewMedia.innerHTML=`
+
+<img
+src="${item.image}"
+alt="${item.title}"
+style="
+width:100%;
+height:100%;
+object-fit:contain;
+border-radius:18px;
+">
+
+`;
+
+}
 
 previewCategory.textContent=item.category;
 
