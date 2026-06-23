@@ -325,13 +325,6 @@ src:"empact ads.mp4",
 title:"Ads Promotion",
 category:"Advertising",
 description:"Professional social media advertisement for b2b visa change and marketing campaign."
-},
-
-{
-image:"logo3.jpg",
-title:"Corporate Logo",
-category:"Branding",
-description:"Business identity design."
 }
 
 ],
